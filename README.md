@@ -44,6 +44,16 @@ AWS CloudFormation-driven infrastructure and CI/CD pipelines that cut provisioni
 
 ---
 
+## 🚀 Projects
+
+- [rds-observability-pipeline](https://github.com/danishsdata/rds-observability-pipeline) — Lambda + CloudWatch + SNS monitoring for RDS/Aurora instances.
+- [redshift-dr-automation](https://github.com/danishsdata/redshift-dr-automation) — Step Functions disaster recovery: snapshot, verify, restore, notify.
+- [aws-data-infrastructure](https://github.com/danishsdata/aws-data-infrastructure) — Parameterized CloudFormation for Aurora, Redshift, and DocumentDB.
+- [kubernetes-platform-jenkins](https://github.com/danishsdata/kubernetes-platform-jenkins) — Kubernetes manifests, Jenkins pipeline, and a runbook.
+- [sql-automation-toolkit](https://github.com/danishsdata/sql-automation-toolkit) — Python/SQL DBA tools: slow queries, index usage, backup checks.
+
+---
+
 ## 📜 Certifications
 
 - Microsoft Certified: Azure Data Engineer Associate
