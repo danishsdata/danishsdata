@@ -45,6 +45,7 @@ I'm a data platform and cloud infrastructure engineer with 10+ years of experien
 ![AWS Lambda](https://img.shields.io/badge/AWS_Lambda-FF9900?style=for-the-badge&logo=awslambda&logoColor=white)
 ![AWS CloudFormation](https://img.shields.io/badge/AWS_CloudFormation-FF4F8B?style=for-the-badge&logo=amazonaws&logoColor=white)
 ![Amazon SNS](https://img.shields.io/badge/Amazon_SNS-FF9900?style=for-the-badge&logo=amazonsns&logoColor=white)
+![AWS KMS](https://img.shields.io/badge/AWS_KMS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
 
 </div>
 
@@ -57,16 +58,19 @@ I'm a data platform and cloud infrastructure engineer with 10+ years of experien
 ## 💼 Featured Work
 
 **RDS Observability Pipeline — Prudential Financial**
-Built and operate a CloudWatch/SNS observability pipeline across 15+ PostgreSQL instances on Amazon RDS and Aurora — performance, reliability, backup/recovery, and high availability. Automated Aurora PostgreSQL upgrades with CloudFormation, Lambda, and Jenkins, cutting manual interventions by 40%.
+Built self-service automation to upgrade Aurora PostgreSQL from 15.x to 16.6, including global clusters, using CloudFormation, Lambda, and Jenkins. It runs pre-upgrade checks, validates the upgrade, and rolls back if needed. Cut manual DBA work by 40%. Designed and built an RDS observability pipeline: RDS event subscriptions send alerts to an SNS topic encrypted with a KMS key, deployed with CloudFormation and tested end to end in QA.
 
 **Disaster Recovery & Security — Prudential Financial**
-Cut Redshift disaster-recovery time from hours to under 30 minutes with Step Functions and Python automation, and hardened Redshift security to zero audit findings.
+Built Redshift disaster recovery with Step Functions and Python — snapshot, check, restore to a DR cluster, and fail back to the primary when done. Failback removes the failover tag and pauses the DR cluster only if pausing was opted in, after a wait you choose. Brought recovery time from hours to under 30 minutes. Locked down write access to the Redshift audit-log S3 buckets with IAM and CloudFormation.
+
+**ServiceNow Archival — Prudential Financial**
+Helped design the ServiceNow-to-S3 archival solution for moving ticket data from ServiceNow to S3.
 
 **Production Kubernetes Platform — Goldman Sachs**
 Ran production-grade Kubernetes clusters at 99.9%+ uptime, built reusable Terraform and CloudFormation templates for Redshift, Aurora, and DocumentDB (cut environment setup time 60%), and migrated 10+ applications from Azure to AWS with zero unplanned downtime.
 
 **Infrastructure as Code & Automation**
-AWS CloudFormation-driven infrastructure and CI/CD pipelines that cut provisioning time 80% and first-level escalations 60% through runbook automation.
+Set up IaC provisioning for RDS and IAM resources with CloudFormation, cutting time to deploy a new database environment by over 80%, from days to under 2 hours. Built least-privilege Level 1 support roles and documentation for Aurora PostgreSQL, and wrote runbooks and training for the support team. First-level escalations to the DBA team dropped by 60%.
 
 ---
 
@@ -78,8 +82,8 @@ AWS CloudFormation-driven infrastructure and CI/CD pipelines that cut provisioni
 | [![aws-data-infrastructure](https://github-readme-stats.vercel.app/api/pin/?username=danishsdata&repo=aws-data-infrastructure&theme=dark)](https://github.com/danishsdata/aws-data-infrastructure) | [![sql-automation-toolkit](https://github-readme-stats.vercel.app/api/pin/?username=danishsdata&repo=sql-automation-toolkit&theme=dark)](https://github.com/danishsdata/sql-automation-toolkit) |
 | [![kubernetes-platform-jenkins](https://github-readme-stats.vercel.app/api/pin/?username=danishsdata&repo=kubernetes-platform-jenkins&theme=dark)](https://github.com/danishsdata/kubernetes-platform-jenkins) | |
 
-- [rds-observability-pipeline](https://github.com/danishsdata/rds-observability-pipeline) — Scheduled Lambda + CloudWatch + SNS monitoring for RDS/Aurora PostgreSQL instances.
-- [redshift-dr-automation](https://github.com/danishsdata/redshift-dr-automation) — Step Functions disaster recovery: snapshot, verify, restore to a DR cluster, notify.
+- [rds-observability-pipeline](https://github.com/danishsdata/rds-observability-pipeline) — RDS event subscriptions to a KMS-encrypted SNS topic, plus a scheduled Lambda health check for RDS/Aurora PostgreSQL.
+- [redshift-dr-automation](https://github.com/danishsdata/redshift-dr-automation) — Step Functions disaster recovery: snapshot, verify, restore to a DR cluster, notify — plus failback to the primary.
 - [aws-data-infrastructure](https://github.com/danishsdata/aws-data-infrastructure) — Parameterized CloudFormation templates for Aurora PostgreSQL, Redshift, and DocumentDB.
 - [sql-automation-toolkit](https://github.com/danishsdata/sql-automation-toolkit) — Python/SQL DBA tools: slow queries, index usage, backup checks.
 - [kubernetes-platform-jenkins](https://github.com/danishsdata/kubernetes-platform-jenkins) — Kubernetes manifests, Jenkins pipeline, and a runbook for the failures that come up most.
